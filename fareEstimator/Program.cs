@@ -6,11 +6,20 @@ using System.Threading.Tasks;
 
 namespace fareEstimator
 {
-    class Program
+    public class Ride
     {
-        static void Main(string[] args)
+       public double[] FareEstimator(int ride_time, int ride_distance, double[] cost_per_minute, double[] cost_per_mile)
         {
-            Console.WriteLine("hello, world!");
+
+            double[] fareEstimator = new double[cost_per_mile.Length];
+
+            for(int i = 0; i < cost_per_mile.Length; i++)
+            {
+                fareEstimator[i] = (double)(cost_per_minute[i]* ride_time) + (double)(cost_per_mile[i] * ride_distance);
+            }
+
+            return fareEstimator;
+
         }
     }
 }
